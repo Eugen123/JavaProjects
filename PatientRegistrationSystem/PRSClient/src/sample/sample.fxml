@@ -1,8 +1,68 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="3872.0" prefWidth="2487.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="0">Registration ID</Label>
+    <TextField fx:id="registration_number" alignment="TOP_LEFT" GridPane.columnIndex="1"> </TextField>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="1">Name</Label>
+    <TextField fx:id="patient_name" alignment="TOP_LEFT" layoutX="1.0" layoutY="1.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM"> </TextField>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="2">Address</Label>
+    <TextField fx:id="patient_address" alignment="TOP_CENTER" layoutX="20.0" layoutY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2"> </TextField>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="3">City</Label>
+    <TextField fx:id="city" alignment="BOTTOM_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3"> </TextField>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="4">Registration Date</Label>
+    <DatePicker fx:id="registration_date" GridPane.columnIndex="1" GridPane.rowIndex="4"> </DatePicker>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="5">Phone</Label>
+    <TextField fx:id="telephone_number" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5"> </TextField>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="6">Gender</Label>
+    <ChoiceBox fx:id="gender" value="gen" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="M" />
+                <String fx:value="F" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+
+    <Label GridPane.columnIndex="0" GridPane.rowIndex="7">Birth Date</Label>
+    <DatePicker fx:id="birth_date" GridPane.columnIndex="1" GridPane.rowIndex="7"> </DatePicker>
+
+    <Button alignment="CENTER" text="Save" GridPane.columnIndex="0" GridPane.rowIndex="9"> </Button>
+
+
+    <Button alignment="CENTER" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="9"> </Button>
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+
 </GridPane>
