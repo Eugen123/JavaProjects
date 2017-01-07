@@ -15,8 +15,9 @@ import java.net.UnknownHostException;
 public class Main extends Application {
 
 
-    private static final int TCP_SERVER_PORT =8890 ;
+    private static final int TCP_SERVER_PORT =8100;
     private Button start_button;
+    Thread s;
     @Override
     public void start(Stage primaryStage) throws Exception{
 
@@ -29,13 +30,17 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 Server server = null;
-                if (!hostAvailabilityCheck()){
+                if (hostAvailabilityCheck()){
                     start_button.setText("STOP");
                     server= new Server();
-                    server.run();
+                  s =  new Thread(server);
+                  s.start();
                 } else {
                     try {
+                        start_button.setText("START");
                         server.connection.close();
+
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -53,21 +58,19 @@ public class Main extends Application {
     }
 
     private static boolean hostAvailabilityCheck() {
-        InetAddress host = null;
-        try {
-            host = InetAddress.getLocalHost();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-        try{
-            Socket s = new Socket(host, TCP_SERVER_PORT);
-            return true;
+
+        try(Socket s = new Socket("localhost", TCP_SERVER_PORT)){
+            s.close();
+            return false;
+
         } catch (IOException ex) {
-        /* ignore */
+
+            return true;
         }
-        return false;
     }
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }

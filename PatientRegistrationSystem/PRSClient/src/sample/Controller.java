@@ -11,15 +11,8 @@ import java.util.ResourceBundle;
 /**
  * Created by eugen.dragomir on 12/26/2016.
  */
-public class Controller implements Initializable {
+public class Controller {
 
-    @FXML
-    private TextField regId;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        regId.setText("Registration Id");
-
-    }
 }
 
